@@ -19,6 +19,15 @@
         "projectManagement",
         "tool"
       ]
+    },
+    {
+      "login": "git-megan",
+      "name": "Megan Middleton",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114352576?v=4",
+      "profile": "https://github.com/git-megan",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
