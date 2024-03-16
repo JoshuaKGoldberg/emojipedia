@@ -5,10 +5,10 @@ import { getEmoji } from "./getEmoji.js";
 const mockRequest = vi.fn();
 
 vi.mock("graphql-request", () => ({
+	gql: (text: string) => text,
 	get request() {
 		return mockRequest;
 	},
-	gql: (text: string) => text,
 }));
 
 const slug = "some-emoji";

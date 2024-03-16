@@ -50,11 +50,7 @@ module.exports = {
 				"n/no-missing-import": [
 					"error",
 					{
-						allowModules: [
-							"emojipedia",
-							"emojipedia/data",
-							"emojipedia/data/*.json",
-						],
+						allowModules: ["emojipedia"],
 					},
 				],
 			},
