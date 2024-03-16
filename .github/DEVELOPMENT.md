@@ -25,6 +25,14 @@ Add `--watch` to run the builder in a watch mode that continuously cleans and re
 pnpm build --watch
 ```
 
+### Building Data
+
+The `lib/data` directory, including `lib/data/index.mjs` and its sibling `*.json` files, is populated by the script at `src/buildData.ts`.
+Run it with `pnpm build:data` to use this repository's `rebuildDirectory` API.
+
+Each emoji will be turned into a `lib/data/*.json` with its slug as the name.
+For example, 💖 is stored in `lib/data/sparkling-heart.json`.
+
 ## Formatting
 
 [Prettier](https://prettier.io) is used to format code.

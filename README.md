@@ -21,11 +21,114 @@
 npm i emojipedia
 ```
 
-```ts
-import { greet } from "emojipedia";
+### Data
 
-greet("Hello, world! 💖");
+The `emojipedia` package exports an `emojipedia/data` export of roughly all emojis on emojipedia.
+Data for each emoji can be imported by its PascalCase name:
+
+```ts
+import { SparklingHeart } from "emojipedia/data";
+
+console.log(SparklingHeart);
+/*
+{
+	"code": "💖",
+	"slug": "sparkling-heart",
+	"title": "Sparkling Heart",
+	// ...
+}
+*/
 ```
+
+Alternately, you can import emoji data from the individual `.json` files by their kebab-case slug name using [JSON import assertions](https://v8.dev/features/import-assertions):
+
+```ts
+import sparklingHeart from "emojipedia/data/sparkling-heart.json" assert { type: "json" };
+
+console.log(sparklingHeart);
+/*
+{
+	"code": "💖",
+	"slug": "sparkling-heart",
+	"title": "Sparkling Heart",
+	// ...
+}
+*/
+```
+
+### Node.js APIs
+
+The functions used to generate Emojipedia data are exported as well.
+In order from low-level to high-level:
+
+1. [`getEmoji`](#getemoji)
+1. [`getEmojis`](#getemojis)
+1. [`rebuildDirectory`](#rebuilddirectory)
+
+#### `getEmoji`
+
+Retrieves data for an emoji by its slug.
+This sends a single network request to the Emojipedia GraphQL API.
+
+```ts
+import { getEmoji } from "emojipedia";
+
+const emoji = await getEmoji("sparkling-heart");
+console.log(emoji);
+/*
+{
+	"code": "💖",
+	"slug": "sparkling-heart",
+	"title": "Sparkling Heart",
+	// ...
+}
+*/
+```
+
+See the TypeScript types for a complete description of emoji properties.
+
+#### `getEmojis`
+
+Retrieves data for an array of emoji slugs by calling [`getEmoji`](#getemoji) for each slug.
+
+```ts
+import { getEmojis } from "emojipedia";
+
+const emojis = await getEmojis(["heart-on-fire", "sparkling-heart"]);
+console.log(emojis);
+/*
+[
+	{
+		"code": "❤️‍🔥",
+		"slug": "heart-on-fire",
+		"title": "Heart on Fire",
+		// ...
+	},
+	{
+		"code": "💖",
+		"slug": "sparkling-heart",
+		"title": "Sparkling Heart",
+		// ...
+	}
+]
+*/
+```
+
+Note that network requests are [`p-throttle` throttled](https://github.com/sindresorhus/p-throttle) to a maximum of 10 calls at each 100ms interval.
+
+#### `rebuildDirectory`
+
+Clears and recreates a directory to contain an `index.mjs`, an `index.d.ts`, and a `*.json` file for each emoji slug.
+
+```ts
+import { rebuildDirectory } from "emojipedia";
+
+await rebuildDirectory({
+	directory: "lib/data",
+});
+```
+
+`rebuildDirectory` will call `getEmojis` with each of the emoji slugs as defined by [`unicode-emoji-json`](https://github.com/muan/unicode-emoji-json).
 
 ## Contributors
 

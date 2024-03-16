@@ -47,7 +47,12 @@ module.exports = {
 		{
 			files: "**/*.md/*.ts",
 			rules: {
-				"n/no-missing-import": ["error", { allowModules: ["emojipedia"] }],
+				"n/no-missing-import": [
+					"error",
+					{
+						allowModules: ["emojipedia"],
+					},
+				],
 			},
 		},
 		{
