@@ -20,10 +20,11 @@ export interface RetrievedEmojiSuccess extends RetrievedEmojiBase {
 
 export async function getEmoji(slug: string): Promise<RetrievedEmoji> {
 	try {
+		const emojipediaSlug = getEmojipediaSlug(slug);
 		return {
 			found: true,
-			info: await getTechnicalInformation(getEmojipediaSlug(slug)),
-			slug,
+			info: await getTechnicalInformation(emojipediaSlug),
+			slug: emojipediaSlug,
 		};
 	} catch {
 		return {
