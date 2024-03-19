@@ -1,3 +1,4 @@
+/* spell-checker: disable */
 const knownAliases = new Map([
 	["a-button", "a-button-blood-type"],
 	["ab-button", "ab-button-blood-type"],
@@ -61,6 +62,7 @@ const knownAliases = new Map([
 	["yellow-circle", "large-yellow-circle"],
 	["yellow-square", "large-yellow-square"],
 ]);
+/* spell-checker: enable */
 
 export function getEmojipediaSlug(unicodeSlug: string) {
 	return knownAliases.get(unicodeSlug) ?? unicodeSlug;
