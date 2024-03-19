@@ -1,5 +1,6 @@
 import { gql, request } from "graphql-request";
 
+import { getEmojipediaSlug } from "./getEmojipediaSlug.js";
 import { EmojiV1TechnicalInformation } from "./types.js";
 
 export type RetrievedEmoji = RetrievedEmojiMissing | RetrievedEmojiSuccess;
@@ -21,7 +22,7 @@ export async function getEmoji(slug: string): Promise<RetrievedEmoji> {
 	try {
 		return {
 			found: true,
-			info: await getTechnicalInformation(slug),
+			info: await getTechnicalInformation(getEmojipediaSlug(slug)),
 			slug,
 		};
 	} catch {
