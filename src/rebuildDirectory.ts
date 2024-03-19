@@ -26,8 +26,7 @@ export async function rebuildDirectory({ directory }: RebuildSettings) {
 			.sort(),
 	)) {
 		if (!retrieved.found) {
-			console.warn("Could not find slug:", retrieved.slug);
-			continue;
+			throw new Error(`Could not find slug on Emojipedia: ${retrieved.slug}`);
 		}
 
 		await Promise.all([
