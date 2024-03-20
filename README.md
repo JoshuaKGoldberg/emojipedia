@@ -1,6 +1,6 @@
 <h1 align="center">The Emojipedia Technical Information Library</h1>
 
-<p align="center">An unofficial static export of emoji technical information from Emojipedia. 📙</p>
+<p align="center">Unofficial static export of emoji technical information from Emojipedia. 📙</p>
 
 <p align="center">
 	<!-- prettier-ignore-start -->

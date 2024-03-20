@@ -29,33 +29,20 @@ export async function rebuildDirectory({ directory }: RebuildSettings) {
 			throw new Error(`Could not find slug on Emojipedia: ${retrieved.slug}`);
 		}
 
+		const fileContents = JSON.stringify(
+			Object.fromEntries(
+				Object.entries(retrieved.info).sort(([a], [b]) => a.localeCompare(b)),
+			),
+			null,
+			4,
+		);
+		const filePathStart = path.join(directory, retrieved.slug);
+
 		await Promise.all([
 			fs.appendFile(`${index}.d.mts`, formatExportLine(retrieved.info)),
 			fs.appendFile(`${index}.mjs`, formatExportLine(retrieved.info)),
-			fs.writeFile(
-				path.join(directory, `${retrieved.slug}.json`),
-				JSON.stringify(
-					Object.fromEntries(
-						Object.entries(retrieved.info).sort(([a], [b]) =>
-							a.localeCompare(b),
-						),
-					),
-					null,
-					4,
-				),
-			),
-			fs.writeFile(
-				path.join(directory, `${retrieved.slug}.d.ts`),
-				JSON.stringify(
-					Object.fromEntries(
-						Object.entries(retrieved.info).sort(([a], [b]) =>
-							a.localeCompare(b),
-						),
-					),
-					null,
-					4,
-				),
-			),
+			fs.writeFile(`${filePathStart}.json`, fileContents),
+			fs.writeFile(`${filePathStart}.d.ts`, fileContents),
 		]);
 
 		foundInfo.push(retrieved.info);
