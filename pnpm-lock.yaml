@@ -15,8 +15,8 @@ dependencies:
     specifier: ^6.1.0
     version: 6.1.0
   unicode-emoji-json:
-    specifier: ^0.4.0
-    version: 0.4.0
+    specifier: ^0.6.0
+    version: 0.6.0
 
 devDependencies:
   '@release-it/conventional-changelog':
@@ -7013,8 +7013,8 @@ packages:
       string.fromcodepoint: 0.2.1
     dev: true
 
-  /unicode-emoji-json@0.4.0:
-    resolution: {integrity: sha512-lVNOwh2AnmbwqtSrEVjAWKQoVzWgyWmXVqPuPkPfKb0tnA0+uYN/4ILCTdy9IRj/+3drAVhmjwjNJQr2dhCwnA==}
+  /unicode-emoji-json@0.6.0:
+    resolution: {integrity: sha512-tAYF+EsOxa8jo/XPNYHRX7Nc8uoII+/edIpHM4DQI4nMp3AuRmwGZhL8fEBe0kUk0zHK+6wiwxxxNwfW5ap2Tg==}
     dev: false
 
   /unicorn-magic@0.1.0:
