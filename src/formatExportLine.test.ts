@@ -11,7 +11,7 @@ describe("formatExportLine", () => {
 		});
 
 		expect(actual).toBe(
-			`export { default as ManInSuit } from "./other.json" assert { type: "json" };\n`,
+			`export { default as ManInSuit } from "./other.json" with { type: "json" };\n`,
 		);
 	});
 
@@ -23,7 +23,7 @@ describe("formatExportLine", () => {
 		});
 
 		expect(actual).toBe(
-			`export { default as FirstPlaceMedal } from "./other.json" assert { type: "json" };\n`,
+			`export { default as FirstPlaceMedal } from "./other.json" with { type: "json" };\n`,
 		);
 	});
 
@@ -35,7 +35,7 @@ describe("formatExportLine", () => {
 		});
 
 		expect(actual).toBe(
-			`export { default as FirstPlaceMedal } from "./other.json" assert { type: "json" };\n`,
+			`export { default as FirstPlaceMedal } from "./other.json" with { type: "json" };\n`,
 		);
 	});
 });
