@@ -13,5 +13,5 @@ export function formatExportLine({
 	const name = currentCldrName?.match(/^\D/) ? currentCldrName : title;
 	const namePascalCase = changeCase.pascalCase(name);
 
-	return `export { default as ${namePascalCase} } from "./${slug}.json" assert { type: "json" };\n`;
+	return `export { default as ${namePascalCase} } from "./${slug}.json" with { type: "json" };\n`;
 }

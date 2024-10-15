@@ -40,10 +40,10 @@ console.log(SparklingHeart);
 */
 ```
 
-Alternately, you can import emoji data from the individual `.json` files by their kebab-case slug name using [JSON import assertions](https://v8.dev/features/import-assertions):
+Alternately, you can import emoji data from the individual `.json` files by their kebab-case slug name using [JSON import attributes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with#description):
 
 ```ts
-import sparklingHeart from "emojipedia/data/sparkling-heart.json" assert { type: "json" };
+import sparklingHeart from "emojipedia/data/sparkling-heart.json" with { type: "json" };
 
 console.log(sparklingHeart);
 /*

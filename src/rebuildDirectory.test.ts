@@ -55,12 +55,12 @@ describe("rebuildDirectory", () => {
 			[
 			  [
 			    "test/index.d.mts",
-			    "export { default as SomeTitle } from "./some-cldr.json" assert { type: "json" };
+			    "export { default as SomeTitle } from "./some-cldr.json" with { type: "json" };
 			",
 			  ],
 			  [
 			    "test/index.mjs",
-			    "export { default as SomeTitle } from "./some-cldr.json" assert { type: "json" };
+			    "export { default as SomeTitle } from "./some-cldr.json" with { type: "json" };
 			",
 			  ],
 			]
