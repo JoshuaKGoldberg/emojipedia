@@ -41,7 +41,7 @@
 	},
 	"dependencies": {
 		"change-case": "^5.4.3",
-		"graphql-request": "^6.1.0",
+		"graphql-request": "^7.0.0",
 		"p-throttle": "^6.1.0",
 		"unicode-emoji-json": "^0.4.0"
 	},
