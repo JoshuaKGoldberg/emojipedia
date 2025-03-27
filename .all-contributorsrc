@@ -1,44 +1,34 @@
 {
-  "badgeTemplate": "\t<a href=\"#contributors\" target=\"_blank\"><img alt=\"👪 All Contributors: <%= contributors.length %>\" src=\"https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-<%= contributors.length %>-21bb42.svg\" /></a>",
-  "commit": false,
-  "commitConvention": "angular",
-  "commitType": "docs",
-  "contributors": [
-    {
-      "login": "JoshuaKGoldberg",
-      "name": "Josh Goldberg ✨",
-      "avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
-      "profile": "http://www.joshuakgoldberg.com/",
-      "contributions": [
-        "code",
-        "content",
-        "doc",
-        "ideas",
-        "infra",
-        "maintenance",
-        "projectManagement",
-        "tool",
-        "bug"
-      ]
-    },
-    {
-      "login": "git-megan",
-      "name": "Megan Middleton",
-      "avatar_url": "https://avatars.githubusercontent.com/u/114352576?v=4",
-      "profile": "https://github.com/git-megan",
-      "contributions": [
-        "test"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7,
-  "contributorsSortAlphabetically": true,
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "projectName": "emojipedia",
-  "projectOwner": "JoshuaKGoldberg",
-  "repoHost": "https://github.com",
-  "repoType": "github"
+	"badgeTemplate": "\t<a href=\"#contributors\" target=\"_blank\"><img alt=\"👪 All Contributors: <%= contributors.length %>\" src=\"https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-<%= contributors.length %>-21bb42.svg\" /></a>",
+	"contributors": [
+		{
+			"login": "JoshuaKGoldberg",
+			"name": "Josh Goldberg ✨",
+			"avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
+			"profile": "http://www.joshuakgoldberg.com/",
+			"contributions": [
+				"code",
+				"content",
+				"doc",
+				"ideas",
+				"infra",
+				"maintenance",
+				"projectManagement",
+				"tool"
+			]
+		},
+		{
+			"login": "git-megan",
+			"name": "Megan Middleton",
+			"avatar_url": "https://avatars.githubusercontent.com/u/114352576?v=4",
+			"profile": "https://github.com/git-megan",
+			"contributions": ["test"]
+		}
+	],
+	"contributorsSortAlphabetically": true,
+	"projectName": "emojipedia",
+	"projectOwner": "JoshuaKGoldberg",
+	"repoType": "github",
+	"commitConvention": "angular"
 }
+

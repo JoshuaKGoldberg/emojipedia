@@ -18,6 +18,10 @@ export interface RetrievedEmojiSuccess extends RetrievedEmojiBase {
 	info: EmojiV1TechnicalInformation;
 }
 
+interface ResponseData {
+	emoji_v1: EmojiV1TechnicalInformation;
+}
+
 export async function getEmoji(slug: string): Promise<RetrievedEmoji> {
 	try {
 		const emojipediaSlug = getEmojipediaSlug(slug);
@@ -32,10 +36,6 @@ export async function getEmoji(slug: string): Promise<RetrievedEmoji> {
 			slug,
 		};
 	}
-}
-
-interface ResponseData {
-	emoji_v1: EmojiV1TechnicalInformation;
 }
 
 async function getTechnicalInformation(slug: string) {
