@@ -1,6 +1,7 @@
 {
-	"dictionaries": ["typescript"],
+	"dictionaries": ["npm", "node", "typescript"],
 	"ignorePaths": [
+		".all-contributorsrc",
 		".github",
 		"CHANGELOG.md",
 		"coverage",
@@ -10,12 +11,16 @@
 	],
 	"words": [
 		"Cldr",
+		"Shortcode",
+		"apexskier",
+		"automerge",
 		"emojipedia",
+		"joshuakgoldberg",
 		"keycap",
 		"knip",
 		"lcov",
+		"markdownlintignore",
 		"packagejson",
-		"Shortcode",
 		"shortcodes",
 		"tseslint",
 		"tsup"
