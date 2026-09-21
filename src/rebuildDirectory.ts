@@ -26,7 +26,10 @@ export async function rebuildDirectory({ directory }: RebuildSettings) {
 			.sort(),
 	)) {
 		if (!retrieved.found) {
-			throw new Error(`Could not find slug on Emojipedia: ${retrieved.slug}`);
+			throw new Error(
+				`Could not retrieve slug from Emojipedia: ${retrieved.slug}`,
+				{ cause: retrieved.error },
+			);
 		}
 
 		const fileContents = JSON.stringify(

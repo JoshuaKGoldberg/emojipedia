@@ -27,11 +27,13 @@ describe("getEmoji", () => {
 	});
 
 	it("returns a not-found object when request throws", async () => {
-		mockRequest.mockRejectedValueOnce(new Error("Oh no!"));
+		const error = new Error("Oh no!");
+		mockRequest.mockRejectedValueOnce(error);
 
 		const actual = await getEmoji(slug);
 
 		expect(actual).toEqual({
+			error,
 			found: false,
 			slug,
 		});
