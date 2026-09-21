@@ -10,6 +10,7 @@ export interface RetrievedEmojiBase {
 }
 
 export interface RetrievedEmojiMissing extends RetrievedEmojiBase {
+	error: unknown;
 	found: false;
 }
 
@@ -26,8 +27,9 @@ export async function getEmoji(slug: string): Promise<RetrievedEmoji> {
 			info: await getTechnicalInformation(emojipediaSlug),
 			slug: emojipediaSlug,
 		};
-	} catch {
+	} catch (error) {
 		return {
+			error,
 			found: false,
 			slug,
 		};
@@ -42,7 +44,7 @@ async function getTechnicalInformation(slug: string) {
 	const response = await request<ResponseData>(
 		"https://emojipedia.org/api/graphql",
 		gql`
-			query ($slug: Slug!, $lang: Language) {
+			query emojiV1($slug: Slug!, $lang: Language) {
 				emoji_v1(slug: $slug, lang: $lang) {
 					...emojiDetailsResource
 				}

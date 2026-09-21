@@ -26,8 +26,10 @@ vi.mock("node:fs/promises", () => ({
 
 describe("rebuildDirectory", () => {
 	it("throws an error when an emoji cannot be found", async () => {
+		const error = new Error("Oh no!");
 		mockGetEmojis.mockImplementation(function* () {
 			yield Promise.resolve({
+				error,
 				found: false,
 				slug: "some-slug",
 			});
@@ -35,9 +37,10 @@ describe("rebuildDirectory", () => {
 
 		await expect(async () => {
 			await rebuildDirectory({ directory: "test" });
-		}).rejects.toMatchInlineSnapshot(
-			`[Error: Could not find slug on Emojipedia: some-slug]`,
-		);
+		}).rejects.toMatchObject({
+			cause: error,
+			message: "Could not retrieve slug from Emojipedia: some-slug",
+		});
 	});
 
 	it("writes data to disk when an emoji is found", async () => {
